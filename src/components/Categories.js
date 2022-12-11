@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
 const arrowItem = {
     img: "https://www.pngfind.com/pngs/m/670-6700898_left-arrow-icon-white-hd-png-download.png"
@@ -36,9 +37,9 @@ const item6 = {
 
 function Arrow() {
     return (
-        <div>
+        <Link to="/homepage">
             <div class="long-arrow-left"></div>
-        </div>
+        </Link>
     );
 }
 

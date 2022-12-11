@@ -1,5 +1,6 @@
 import React from 'react';
-import GenerateRoot from './Categories';
+import Categories from './Categories';
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
 
 const header = {
@@ -26,6 +27,7 @@ const banner = {
 };
 
 const item = {
+    id:1,
     img:
         "https://media.karousell.com/media/photos/products/2018/04/19/garena_shell__1000_1524150057_69a8ef6c.jpg",
     name: "1000 Garena Shells",
@@ -35,6 +37,7 @@ const item = {
 };
 
 const item2 = {
+    id: 2,
     img:
         "https://www.pngfind.com/pngs/m/142-1424684_quick-view-100-steam-wallet-gift-card-hd.png",
     name: "$100 Steam Wallet",
@@ -44,6 +47,7 @@ const item2 = {
 };
 
 const item3 = {
+    id: 3,
     img:
         "https://media.direct.playstation.com/is/image/sierialto/dualsense-ps5-controller-starlight-blue-accessory-front",
     name: "PS5 Controller",
@@ -53,6 +57,7 @@ const item3 = {
 };
 
 const item4 = {
+    id: 4,
     img:
         "https://cdn.shopify.com/s/files/1/0373/1675/5501/products/50_85904364-1e2f-48e2-95c9-f30a007e4d7c_grande.png?v=1591091780",
     name: "$50 Steam Wallet",
@@ -62,6 +67,7 @@ const item4 = {
 };
 
 const item5 = {
+    id: 5,
     img:
         "https://img.gamewith.net/article_tools/genshin-impact/gacha/s_i_947.png",
     name: "1-Year Welkin's Blessing",
@@ -71,6 +77,7 @@ const item5 = {
 };
 
 const item6 = {
+    id: 6,
     img:
         "https://www.uniqlo.com/jp/ja/contents/feature/masterpiece/common_22fw/img/products/productsArea_itemimg_8_m.jpg?220211",
     name: "Cash.io Hoodie",
@@ -80,6 +87,7 @@ const item6 = {
 };
 
 const item7 = {
+    id: 7,
     img: "https://pbs.twimg.com/media/DK_PMw4W0AE6mcO.png",
     name: "Gift Codes",
     type: "Get your Gift Codes for your desired Games and Products here",
@@ -88,6 +96,7 @@ const item7 = {
 };
 
 const item8 = {
+    id: 8,
     img:
         "https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/cash-i-o-g0pdt4/assets/e7n18epwp7kk/cashIO-removebg-preview.png",
     name: "Official Merchandise",
@@ -96,11 +105,13 @@ const item8 = {
     ogvalue: ""
 };
 
-function changeComponent() {
+const initcart = []
+const list = []
 
+function addToCart(item) {
+
+    const cart = list.concat({ item });
 }
-
-function addToCart(item) { }
 
 function UserProfile(user) {
     return (
@@ -120,8 +131,9 @@ function UserProfile(user) {
 }
 
 function SalesCard(item) {
+
     return (
-        <div class="sales-card">
+        <div key={item.id} class="sales-card">
             <img src={item.img} />
             <h3>{item.name}</h3>
             <p>{item.type}</p>
@@ -147,6 +159,7 @@ function Banner(banner) {
 }
 
 function Homepage() {
+    const [list, cart] = React.useState(initcart);
     return (
         <div class="main">
             <div class="navbar">
@@ -173,16 +186,16 @@ function Homepage() {
             </div>
             <h1>Shop by Category</h1>
             <div class="content">
-                <a class="sales-card" onClick='{GenerateRoot/}'>
+                <Link to="/categories" class="sales-card">
                     <img src={item7.img} />
                     <h3>{item7.name}</h3>
                     <p>{item7.type}</p>
-                </a>
-                <a class="sales-card" onClick='{GenerateRoot/}'>
+                </Link>
+                <Link to="/categories" class="sales-card">
                     <img src={item8.img} />
                     <h3>{item8.name}</h3>
                     <p>{item8.type}</p>
-                </a>
+                </Link>
             </div>
         </div>
     );

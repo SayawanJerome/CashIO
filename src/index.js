@@ -7,15 +7,17 @@ import './index.css';
 
 import Homepage from './components/Homepage';
 import Categories from './components/Categories';
+import SignIn from './components/Signin';
 
 
 
-export default function App() {
+export default function App() {    
+
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Layout />}>
-                    <Route index element={<Homepage />} />
+                    <Route index element={<SignIn />} />
                     <Route path="homepage" element={<Homepage />} /> 
                     <Route path="categories" element={<Categories />} />                    
                 </Route>
