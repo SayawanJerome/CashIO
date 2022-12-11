@@ -98,9 +98,9 @@ function Table() {
     );
 }
 
-function GenerateRoot() {
+function Categories() {
     return (
-        <div>
+        <div class="Categories">
             <Arrow />
             <Header />
             <Table />
@@ -108,5 +108,5 @@ function GenerateRoot() {
     );
 }
 
-export default GenerateRoot;
+export default Categories;
 

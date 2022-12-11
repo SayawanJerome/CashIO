@@ -1,31 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { useState } from 'react'
+import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
+import Layout from "./components/Layout";
 
 import './index.css';
 
-import Header from './components/Homepage';
-import GenerateRoot from './components/Categories';
+import Homepage from './components/Homepage';
+import Categories from './components/Categories';
 
 
 
-
-function Cashio() {
-
-    const [isActive, setIsActive] = useState(false);
-    const handleClick = event => {        
-        setIsActive(current => !current);
-    };
+export default function App() {
     return (
-        <div>
-            <Header />
-            <GenerateRoot/>
-        </div>
-        )
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    <Route index element={<Homepage />} />
+                    <Route path="homepage" element={<Homepage />} /> 
+                    <Route path="categories" element={<Categories />} />                    
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 ReactDOM.render( 
-        <Cashio />,
+        <App />,
 
     document.getElementById('root')
 );

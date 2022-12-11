@@ -1,4 +1,5 @@
 import React from 'react';
+import GenerateRoot from './Categories';
 
 
 const header = {
@@ -95,6 +96,10 @@ const item8 = {
     ogvalue: ""
 };
 
+function changeComponent() {
+
+}
+
 function addToCart(item) { }
 
 function UserProfile(user) {
@@ -141,7 +146,7 @@ function Banner(banner) {
     );
 }
 
-function Header() {
+function Homepage() {
     return (
         <div class="main">
             <div class="navbar">
@@ -168,12 +173,12 @@ function Header() {
             </div>
             <h1>Shop by Category</h1>
             <div class="content">
-                <a class="sales-card" href="">
+                <a class="sales-card" onClick='{GenerateRoot/}'>
                     <img src={item7.img} />
                     <h3>{item7.name}</h3>
                     <p>{item7.type}</p>
                 </a>
-                <a class="sales-card" href="">
+                <a class="sales-card" onClick='{GenerateRoot/}'>
                     <img src={item8.img} />
                     <h3>{item8.name}</h3>
                     <p>{item8.type}</p>
@@ -185,4 +190,4 @@ function Header() {
 
 
 
-export default Header;
+export default Homepage;
